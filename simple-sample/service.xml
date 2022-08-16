@@ -1,0 +1,10 @@
+<?xml version="1.0"?>  
+<service>
+   <parameters>
+     <par1>10</par1>
+     <par2>5</par2>
+   </parameters>
+   <operation>
+       <id>sum</id> 
+   </operation>
+</service>  
