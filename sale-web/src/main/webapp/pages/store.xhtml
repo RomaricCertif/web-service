@@ -1,0 +1,137 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="/base.xhtml">
+
+	<ui:define name="title">Dashboard</ui:define>
+
+	<ui:define name="head">
+		<script type="text/javascript">
+            //<![CDATA[
+            function skinChart() {
+                this.cfg.shadow = false;
+                this.cfg.title = '';
+                this.cfg.seriesColors = ['#FFC107', '#03A9F4'];
+                this.cfg.grid = {
+                    background: '#ffffff',
+                    borderColor: '#ffffff',
+                    gridLineColor: '#EEEEEE',
+                    shadow: false
+                };
+                this.cfg.axesDefaults = {
+                    rendererOptions: {
+                        textColor: '#212121'
+                    }
+                };
+                this.cfg.seriesDefaults = {
+                    shadow: false,
+                    lineWidth: 1,
+                    markerOptions: {
+                        shadow: false,
+                        size: 7,
+                        style: 'circle'
+                    }
+                }
+            }
+            //]]>  
+        </script>
+		<style type="text/css">
+.main-content {
+	padding: 0;
+}
+</style>
+	</ui:define>
+
+	<ui:define name="content">
+
+
+		<ui:insert name="title-form"></ui:insert>
+
+		<p:tabView>
+
+			<p:tab title="Liste">
+
+				<p:toolbar>
+					<p:toolbarGroup align="right">
+
+
+
+
+					</p:toolbarGroup>
+
+				</p:toolbar>
+				<br />
+				<center>
+					<p:commandButton icon="ui-icon-refresh" id="back" process="@this"
+						value="Rafraichir" action="#{managedBean.refresh()}"
+						update="entity" />
+				</center>
+				<br />
+				<p:panel id="ui-datas">
+					<ui:insert name="ui_record_datas">
+						<center>
+							<p:dataTable id="entity" var="entity" scrollable="true"
+								scrollHeight="150" value="#{storeBean.dtos}"
+								 emptyMessage="Vide" style="width:1000px;">
+
+								
+
+								<p:column headerText="Code" style="width:80px;">
+									<p:cellEditor>
+										<f:facet name="output">
+											<h:outputText value="#{entity.storeCd}" />
+										</f:facet>
+										<f:facet name="input">
+											<p:inputText value="#{entity.storeCd}" />
+										</f:facet>
+									</p:cellEditor>
+								</p:column>
+
+								<p:column headerText="Description" style="width:200px;"
+									rendered="true">
+									<p:cellEditor>
+										<f:facet name="output">
+											<h:outputText value="#{entity.description}"  style="width:150px;"/>
+										</f:facet>
+										<f:facet name="input">
+											<p:inputText value="#{entity.description}"  style="width:150px;"/>
+										</f:facet> 
+									</p:cellEditor>
+
+
+
+								</p:column>
+
+					
+
+
+							</p:dataTable>
+						</center>
+					
+
+						
+					</ui:insert>
+
+				</p:panel>
+
+			</p:tab>
+			<p:tab title="Saisie">
+			   <p:messages id="myMsg"></p:messages>
+			   <h:panelGrid columns="2">
+			   
+			     <h:outputLabel value="Code" />
+			     <h:inputText value="#{storeBean.storeDTO.storeCd}" />
+			     
+			        <h:outputLabel value="Description" />
+			     <h:inputText value="#{storeBean.storeDTO.description}" />
+			     
+			     <p:commandButton value="Save" action="#{storeBean.save()}" process="@form" update="myMsg,ui-datas"></p:commandButton>
+			   
+			   </h:panelGrid>
+			</p:tab>
+
+		</p:tabView>
+	</ui:define>
+
+</ui:composition>

@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:pu="http://primefaces.org/ultima"
+	xmlns:p="http://primefaces.org/ui">
+
+<f:view contentType="text/html">
+	<h:head>
+		<title>Doranco</title>
+		<h:outputStylesheet name="main/css/showcase.css" />
+		<h:outputStylesheet name="main/css/sh.css" />
+		<h:outputStylesheet library="webjars"
+			name="font-awesome/5.8.2/css/all.min-jsf.css" />
+		<h:outputStylesheet library="webjars"
+			name="font-awesome/5.8.2/css/v4-shims.min-jsf.css" />
+		<h:outputStylesheet library="webjars"
+			name="font-awesome/4.7.0/css/font-awesome.min-jsf.css" />
+		<style type="text/css">
+body {
+	background-color: #FFFFFF;
+}
+</style>
+		<script type="text/javascript">
+			var _gaq = _gaq || [];
+			_gaq.push([ '_setAccount', 'UA-12200033-1' ]);
+			_gaq.push([ '_trackPageview' ]);
+			(function() {
+				var ga = document.createElement('script');
+				ga.type = 'text/javascript';
+				ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl'
+						: 'http://www')
+						+ '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(ga, s);
+			})();
+		</script>
+	</h:head>
+
+	<h:body class="layout-compact">
+
+		<p:messages id="msg"></p:messages> />
+
+		<p:layout fullPage="true">
+
+			<p:layoutUnit position="center">
+				<h:form id="fall">
+
+
+					<h:outputText value="DORANCO ® "
+						style="white-space: pre;font-size:30px; color:red" escape="false" />
+					<h:outputText value="Sale ++" style="font-weight:bold;" />
+
+
+
+					<p:menubar>
+						<p:submenu label="Fichier">
+							<p:submenu label="Transaction" >
+								<p:menuitem value="Vente" />
+								<p:menuitem value="Stock" />
+							</p:submenu>
+						</p:submenu>
+
+						<p:submenu label="Paramètres" >
+							<p:menuitem value="Produit" />
+							<p:menuitem value="Magasin" action="#{menubean.gotoStore()}"  ajax="false"/>
+						</p:submenu>
+
+
+						
+					</p:menubar>
+
+				</h:form>
+
+
+
+				<h:form id="content-form" prependid="false"
+					enctype="multipart/form-data">
+					<ui:insert name="content">
+
+					</ui:insert>
+				</h:form>
+			</p:layoutUnit>
+
+		</p:layout>
+
+
+		<script language="javascript"
+			src="#{request.contextPath}/resources/main/js/sh.js"></script>
+		<script language="javascript">
+			SyntaxHighlighter.all();
+		</script>
+		<h:outputStylesheet name="css/nanoscroller.css"
+			library="ultima-layout" />
+		<h:outputStylesheet name="css/animate.css" library="ultima-layout" />
+		<h:outputStylesheet name="css/ripple.css" library="ultima-layout" />
+		<h:outputStylesheet name="css/layout-indigo.css"
+			library="ultima-layout" />
+	</h:body>
+
+</f:view>
+
+
+</html>

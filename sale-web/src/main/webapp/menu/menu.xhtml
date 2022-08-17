@@ -1,0 +1,75 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="/base.xhtml">
+
+	<ui:define name="title">Dashboard</ui:define>
+
+	<ui:define name="head">
+		<script type="text/javascript">
+            //<![CDATA[
+            function skinChart() {
+                this.cfg.shadow = false;
+                this.cfg.title = '';
+                this.cfg.seriesColors = ['#FFC107', '#03A9F4'];
+                this.cfg.grid = {
+                    background: '#ffffff',
+                    borderColor: '#ffffff',
+                    gridLineColor: '#EEEEEE',
+                    shadow: false
+                };
+                this.cfg.axesDefaults = {
+                    rendererOptions: {
+                        textColor: '#212121'
+                    }
+                };
+                this.cfg.seriesDefaults = {
+                    shadow: false,
+                    lineWidth: 1,
+                    markerOptions: {
+                        shadow: false,
+                        size: 7,
+                        style: 'circle'
+                    }
+                }
+            }
+            //]]>  
+        </script>
+		<style type="text/css">
+.main-content {
+	padding: 0;
+}
+</style>
+	</ui:define>
+
+	<ui:define name="content">
+		<h1>Utilisateur</h1>
+		<p:tabView>
+	
+			<p:tab title="Principal">
+				<h:panelGrid columns="2" cellpadding="4">
+					<label style="color: #F22F05;">ID Utilisateur</label>
+					<p:inputText readonly="true" />
+
+					<label style="color: #F22F05;">Prenom(s)</label>
+					<p:inputText readonly="true" />
+
+
+					<label style="color: #F22F05;">Noms(s)</label>
+					<p:inputText readonly="true" />
+
+
+
+				</h:panelGrid>
+
+				
+
+			</p:tab>
+
+		</p:tabView>
+
+
+	</ui:define>
+
+</ui:composition>

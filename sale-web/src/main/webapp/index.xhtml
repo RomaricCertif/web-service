@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<title>Gestion commerciale</title>
+	<h:outputStylesheet library="css" name="bootstrap.min.css" />
+
+</h:head>
+<body style="background: #eee;">
+
+	<br></br>
+	<br></br>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8"></div>
+			<div class="col-md-4">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<div class="page-header">
+							<h3>
+								<h:panelGrid columns="2">
+									<h:outputText value="DORANCO ® "
+										style="white-space: pre;font-size:30px; color:red"
+										escape="false" />
+									<h:outputText value="SALE ++" style="font-weight:bold;" />
+								</h:panelGrid>
+							</h3>
+						</div>
+						<h:form>
+							<p:messages showIcon="ui-icon-account-balance"></p:messages>
+							<div class="form-group">
+								<h:outputText value="ID utilisateur" />
+								<h:inputText class="form-control" />
+							</div>
+							<div class="form-group">
+								<h:outputText value="Mot de passe " />
+								<h:inputSecret class="form-control" />
+							</div>
+							
+								<h:commandButton value="Se Connecter" class="btn btn-secondary"
+								   action="#{logginBean.connect ()}"
+									 />
+						
+
+							<hr />
+							<h:panelGrid columns="1">
+								<h:outputText value="Copyright 2022 ©  Doranco ®"
+									style="white-space: pre;font-size:9px; color:red"
+									escape="false" />
+
+							</h:panelGrid>
+
+						</h:form>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
